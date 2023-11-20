@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import FlashMessage from 'react-flash-message';
-
+import "./adminCSS.css";
 const AdminSignup = () => {
   const [adminData, setAdminData] = useState({
     username: '',
@@ -43,28 +43,48 @@ const AdminSignup = () => {
   };
 
   return (
-    <>
-      <h1>Admin Signup</h1>
-      <form>
-        <label>
-          Username:
-          <input type="text" placeholder='Enter Your Email' name="username" value={adminData.username} onChange={handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" name="password" value={adminData.password} onChange={handleInputChange} />
-        </label>
-        <br />
-        <button type="button" onClick={handleSignup}>
-          Sign Up
-        </button>
+    <section className="container forms">
+      <div className="form login">
+        <div className="form-content">
+          <header>Signup</header>
+          <FlashMessage duration={5000} persistOnHover={true}>
+            <div id="flash-message-container"></div>
+          </FlashMessage>
+          <form  className="mt-3">
+            <div className="field input-field">
+              <input
+                type="text"
+                placeholder="Username"
+                className="input"
+                id="username"
+                name="username"
+                value={adminData.username}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
 
-        <FlashMessage duration={5000} persistOnHover={true}>
-          <div id="flash-message-container"></div>
-        </FlashMessage>
-      </form>
-    </>
+            <div className="field input-field">
+              <input
+                type="password"
+                placeholder="Password"
+                className="password"
+                id="password"
+                name="password"
+                value={adminData.password}
+                onChange={handleInputChange}
+                required
+              />
+              <i className='bx bx-hide eye-icon'></i>
+            </div>
+
+            <div className="field button-field">
+              <button type="button" onClick={handleSignup}>Signup</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 };
 

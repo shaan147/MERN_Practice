@@ -32,7 +32,7 @@ router.post('/admin/signup', async (req, res) => {
 router.post('/admin/login', passport.authenticate('admin', {
   failureFlash: { type: 'error', message: 'Invalid Username/Password' }
 }), (req, res) => {
-  // If needed, perform additional actions after successful login
+
   res.status(200).json({ message: 'Admin login successful!' });
 });
 

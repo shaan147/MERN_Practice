@@ -1,5 +1,6 @@
 import AdminSignup from './components/adminSignup';
-import './App.css'
+import AdminLogin from './components/adminLogin';
+
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
   return (
     <>
       <AdminSignup />
+      <AdminLogin />
     </>
   )
 }
